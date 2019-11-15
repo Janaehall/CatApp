@@ -1,7 +1,3 @@
-
-
-
- 
   <br>
   <%= render partial: "layouts/cat_display", locals: {cat: @cat} %>
   <br>
@@ -14,17 +10,19 @@
   <% end %>
   <br><br><br>
   <div class='form'>
-  <h3>Reviews of <%= @cat.name %></h3>
-  <% if !@cat.reviews.empty? %>
-    <div class='reviews'>
-      <% @reviews.each do |review|%>
-      <h5><%=link_to review.reservation.renter.name, review.reservation.renter %></h5>
-      <%=("⭐️" * review.rating)+("☆" * (5 - review.rating)) %>
-      <p>"<%= review.review %>"</p>
-      <br>
-      <% end %></div>
-  <% else %>
-    <p>None</p>
+    <h3>Reviews of <%= @cat.name %></h3>
+    <% if !@cat.reviews.empty? %>
+      <div class='reviews'>
+        <% @reviews.each do |review|%>
+          <h5><%=link_to review.reservation.renter.name, review.reservation.renter %></h5>
+          <%=("⭐️" * review.rating)+("☆" * (5 - review.rating)) %>
+          <br>
+          <p>"<%= review.review %>"</p>
+          <br>
+        <% end %></div>
+    <% else %>
+      <p>None</p>
     <% end %>
-</div>
-</div>
+  </div>
+
+

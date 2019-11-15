@@ -14,7 +14,7 @@
     <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
         <div class='error'><%=error%></div>
-        <% end %>
+      <% end %>
     <% end %>
 
     <%= yield %>

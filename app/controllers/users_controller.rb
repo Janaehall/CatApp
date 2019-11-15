@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     def show
       @user = User.find_by(id: params[:id])
       @cats = @user.cats
+      @reviews = @user.self_reviews_as_renter
     end
 
 

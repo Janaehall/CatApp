@@ -10,59 +10,59 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Cat App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Cat App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/cats">All Cats</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/cat_stats">Cat Stats</a>
-      </li>
-      <% if session[:user_id] %>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/my_profile">My Profile</a>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link"><%= link_to "Logout", logout_path, method: :delete%></div>
-      </li>
-      <% else %>
-      <li class="nav-item">
-       <a class="nav-link" href="/login">Log In</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/new">Sign Up</a>
-      </li>
-
-      <% end %>
-        </ul>
-        <div style="align:right;">
-      <%=form_with url: '/cats/search' do |f|%>
-      <%=f.text_field :q%>
-      <%=f.submit "Search"%>
-      <%end%>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cats">All Cats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cat_stats">Cat Stats</a>
+          </li>
+          <% if session[:user_id] %>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/my_profile">My Profile</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link"><%= link_to "Logout", logout_path, method: :delete%></div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/new">Sign Up</a>
+            </li>
+          <% end %>
+          </ul>
+          <div style="align:right;">
+            <%=form_with url: '/cats/search' do |f|%>
+              <%=f.text_field :q%>
+              <%=f.submit "Search"%>
+            <%end%>
+          </div>
       </div>
-  </div>
-</nav>
+    </nav>
 
 
   <div class='error'>
-  <% if flash[:errors] %>
+    <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
         <p><%=error%></p>
-        <% end %>
+        <br>
+      <% end %>
     <% end %>
     </div>
     <div class='page'>
-    <%= yield %>
+      <%= yield %>
     </div>
-    </body>
+  </body>
 </html>

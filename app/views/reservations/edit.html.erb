@@ -1,5 +1,6 @@
  
-
+<h1 style='border:solid; padding:15px;'>Edit Reservation</h1>
+<div class="form">
 <%= form_with model: @reservation do |f| %>
     <input type="hidden" name="cat_id" value=<%=@cat_id%>>
     <p><%= f.label :date %></p>

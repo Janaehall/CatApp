@@ -48,7 +48,7 @@ Cat.create(owner_id: 22, name: Faker::Creature::Cat.unique.name, breed: Faker::C
     Reservation.create(
         cat_id: Faker::Number.within(range: 1..9),
         renter_id: Faker::Number.within(range: 1..20),
-        date: Faker::Date.between(from: 1.year.ago, to: Date.today)
+        date: Faker::Date.between(from: Date.today, to: 1.year.from_now)
     )
 end
 

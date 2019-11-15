@@ -1,6 +1,5 @@
  
-
-<h1>Rent <%= @cat.name %></h1>
+<h1 style='border:solid; padding:15px;'>Rent <%= @cat.name %></h1>
 <div class="form">
 <%= form_with model: @reservation do |f| %>
     <input type="hidden" name="reservation[cat_id]" value=<%=@cat_id%>>

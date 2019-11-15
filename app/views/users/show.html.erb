@@ -1,8 +1,7 @@
  
-
-<h1><%=@user.name%></h1>
+<h1 style='border:solid; padding:15px;'><%= @user.name %></h1>
 <br><br>
-<h2><%=@user.name%>'s Cats</h2>
+<h2><u><%=@user.name%>'s Cats</u></h2>
 <% if @cats.length > 0 %>
   <%@cats.each do |cat|%>
     <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
@@ -11,4 +10,18 @@
 <%else %>
   <p>None</p>
   <% end %>
-  </div>
+  <br><br>
+<div class='form'>
+<h2><u>Reviews of <%=@user.name%></u></h2>
+<% if @reviews && !@reviews.empty? %>
+    <div class='reviews'>
+<%@reviews.each do |review|%>
+     <h5><%= link_to review.reservation.cat.owner.name, review.reservation.cat.owner %></h5>
+    <%=("⭐️" * review.rating)+("☆" * (5 - review.rating))%><%= review.rating.to_f %>/5</p><br>
+    <p>"<%= review.review %>"</p>
+    <br>
+  <%end%></div>
+<% else %>
+  <p style="margin-left:50px;">None</p>
+<% end %>
+</div>

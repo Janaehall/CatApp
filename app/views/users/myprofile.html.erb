@@ -1,30 +1,39 @@
 
-<h1 style='border:solid; padding:50px;'>My Profile</h1>
+<h1 style='border:solid; padding:15px;'>My Profile</h1>
 <div class="button">
 <%= button_to "Add a New Cat", new_cat_path, method: :get %>
 </div>
 <br><br>
-<h2 style="float:left;"><u>My Cats</u></h2>
+<h2 style="text-align:center;"><u>My Cats</u></h2>
 <br><br>
-<%# <div class="form"> %>
 <% if @cats.length > 0  %>
-<%@cats.each do |cat|%>
 <div class='cat'>
+<%@cats.each do |cat|%>
   <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
+    <br><br>
+    <div style="text-align: left; margin-left: 50px;">
+    <h4><%= cat.name%>'s Reservations</h4>
+    <% if cat.reservations.length > 0 %>
+      <% cat.reservations.each do |reservation|%>
+    
+      <p><%= link_to "#{reservation.date.to_s(:custom_datetime)}", reservation %></p>
+
+        <% end %>
+      <% else %>
+    <p>None</p>
+    <% end %></div>
     <br><br>
   <% end %></div>
 <% else %>
-<p>None</p>
+<p style="margin-left:323px;">None</p>
 <% end %>
 
 <br><br>
-
+<div class='form'>
 <h2><u>My Reservations</u></h2>
 <% if @reservations.length > 0 %>
     <% @reservations.each do |reservation| %>
-      <div style="margin-left:50px;">
       <%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %>
-      </div>
       <br>
     <% end  %>
 <% else %>
@@ -32,16 +41,18 @@
 <% end %>
 
 <br><br>
-
 <h2><u>Reviews of Me</u></h2>
 <% if @reviews_of_me && !@reviews_of_me.empty? %>
+    <div class='reviews'>
 <%@reviews_of_me.each do |review|%>
-     <%= link_to review.reservation.cat.owner.name, review.reservation.cat.owner %>
-    <p><%=("⭐️" * review.rating)+("☆" * (5 - review.rating))%><%= review.rating.to_f %>/5</p>
+     <h5><%= link_to review.reservation.cat.owner.name, review.reservation.cat.owner %></h5>
+    <%=("⭐️" * review.rating)+("☆" * (5 - review.rating))%><%= review.rating.to_f %>/5</p><br>
     <p>"<%= review.review %>"</p>
-  <%end%>
+    <br>
+  <%end%></div>
 <% else %>
   <p style="margin-left:50px;">None</p>
 <% end %>
 </div>
+
 

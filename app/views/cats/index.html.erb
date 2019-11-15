@@ -1,23 +1,22 @@
  
-  <h1>All Cats:</h1>
+  <h1 style='border:solid; padding:15px;'>All Cats</h1>
   <% if params[:q] %>
-  <div class='button'>
-    <%=button_to "Back To All Cats", cats_path, method: :get%>
-  </div>
+    <div class='button'>
+      <%=button_to "Back To All Cats", cats_path, method: :get%>
+    </div>
   <% end %>
   <br>
-<%if @cats.empty? %>
-<br><br>
-  No Results Found For "<%= params[:q] %>"
-  <br><br>
-<% else %>
-<br><br>
- <div class='cat'> 
- <%@cats.each do |cat| %>
-    <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
-    <br>
-    <div class='button'><%=button_to 'Rent This Cat', new_reservation_path(cat), method: :get%></div>
-    <br><br><br>
-  <%end%>
-  
-<% end  %></div>
+  <%if @cats.empty? %>
+    <br><br>
+    No Results Found For "<%= params[:q] %>"
+    <br><br>
+  <% else %>
+    <br><br>
+    <div class='cat'> 
+      <%@cats.each do |cat| %>
+        <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
+        <br>
+        <div class='button'><%=button_to 'Rent This Cat', new_reservation_path(cat), method: :get%></div>
+        <br><br><br>
+      <%end%>
+  <% end  %></div>

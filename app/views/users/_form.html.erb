@@ -1,19 +1,19 @@
 
 <%= form_with model: @user do |f|  %>
-<p><%= f.label :username %></p>
-<p><%= f.text_field :username %></p>
-<br>
-<p><%= f.label :password %></p>
-<p><%= f.password_field :password %></p>
-<br>
-<p><%= f.label :password_confirmation, "Confirm Password"%></p>
-<p><%= f.password_field :password_confirmation%></p>
-<br>
-<p><%= f.label :name, "Display Name" %></p>
-<p><%= f.text_field :name %></p>
-<br>
-<div style="text-align:center;">
-<br>
-<%= f.submit "Submit" %>
-</div>
+  <p><%= f.label :username %></p>
+  <p><%= f.text_field :username %></p>
+  <br>
+  <p><%= f.label :password %></p>
+  <p><%= f.password_field :password %></p>
+  <br>
+  <p><%= f.label :password_confirmation, "Confirm Password"%></p>
+  <p><%= f.password_field :password_confirmation%></p>
+  <br>
+  <p><%= f.label :name, "Display Name" %></p>
+  <p><%= f.text_field :name %></p>
+  <br>
+  <div style="text-align:center;">
+    <br>
+    <%= f.submit "Submit" %>
+  </div>
 <% end %>

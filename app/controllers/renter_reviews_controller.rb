@@ -2,6 +2,7 @@ class RenterReviewsController < ApplicationController
   before_action :authorized, only: [:new, :edit, :destroy]
   
   def new
+    @renter = Reservation.find_by(id: params[:id]).renter
     @renter_review = RenterReview.new
     @reservation_id = params[:id]
     if session[:user_id] == Reservation.find_by(id: @reservation_id).cat.owner_id

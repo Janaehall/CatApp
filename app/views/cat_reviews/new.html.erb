@@ -1,12 +1,13 @@
- <h1 style='border:solid; padding:50px;'>Review <%= @cat.name %></h1>
-
-<%= form_with model: @cat_review do |f| %>
-    <input type="hidden" name="cat_review[reservation_id]" value=<%=@reservation_id%>>
-    <p><%= f.label :rating%></p>
-    <div style="text-align:center;"><%= f.number_field :rating, min: 1, max: 5%></div><br>
-    <p><%= f.label :review %><br></p>
-    <%= f.text_area :review %><br>
-    <br><br>
-    <div style="text-align:center;"><%= f.submit %></div>
-<%end%>
+ <h1 style='border:solid; padding:15px;'>Review <%= @cat.name %></h1>
+ <div class='form'>
+    <%= form_with model: @cat_review do |f| %>
+      <input type="hidden" name="cat_review[reservation_id]" value=<%=@reservation_id%>>
+      <h4><%= f.label :rating%></h4>
+      <%= f.number_field :rating, min: 1, max: 5%>
+      <br><br>
+      <h4><%= f.label :review %></h4><br>
+      <%= f.text_area :review %><br>
+      <br><br>
+      <div style="text-align:center;"><%= f.submit %></div>
+    <%end%>
 </div>

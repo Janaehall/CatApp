@@ -1,11 +1,11 @@
  
 
-<h1>Cat Stats</h1>
+<h1 style='border:solid; padding:15px;'>Cat Stats</h1>
 <br><br>
-<h2>Featured Cat</h2>
+<h2><u>Featured Cat</u></h2>
 <%= render partial: "layouts/cat_display", locals: {cat: @featured_cat} %>
 <br><br>
-<h2>Top 3 Cats:</h2>
+<h2><u>Top 3 Cats:</u></h2>
 <% @top3.each do |cat| %>
   <%= render partial: "layouts/cat_display", locals: {cat: cat} %>
   <br><br>
