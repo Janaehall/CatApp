@@ -9,24 +9,24 @@
 </div>
 <div class="catinfo">
   <h4 style="margin: 0; display: inline;">Owner:</h4>
-  <p style="margin: 0; display: inline;" align="right"><%=link_to cat.owner.name, cat.owner %></p>
+  <p style="margin: 0; display: inline;"><%=link_to cat.owner.name, cat.owner %></p>
   <br>
   <h4 style="margin: 0; display: inline;">Rating:</h4>
   <% if cat.overall_rating > 0 %>
-    <p style="margin: 0; display: inline;" align="right"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i)) %>
+    <p style="margin: 0; display: inline;"><%=("⭐️" * cat.overall_rating.to_i)+("☆" * (5 - cat.overall_rating.to_i)) %>
     <%="#{cat.overall_rating} / 5"%></p>
   <% else %>
     <p style="margin: 0; display: inline;">None</p>
   <% end %>
   <br>
   <h4 style="margin: 0; display: inline;">Neighborhood:</h4>
-  <p style="margin: 0; display: inline;" align="right"><%=cat.neighborhood%></p>
+  <p style="margin: 0; display: inline;"]><%=cat.neighborhood%></p>
   <br>
   <h4 style="margin: 0; display: inline;">Price:</h4>
-  <p style="margin: 0; display: inline;" align="right">$<%=cat.price%></p>
+  <p style="margin: 0; display: inline;">$<%=cat.price.round(2)%></p>
   <br>
   <h4 style="margin: 0; display: inline;">Tags:</h4>
-  <p style="margin: 0; display: inline;" align="right">
+  <p style="margin: 0; display: inline;">
   <%if cat.tags.length > 0%>
     <%cat.tags.uniq.each do |tag|%>
       #<%=link_to tag.name, "/cats/?q=#{tag.name}"%> 

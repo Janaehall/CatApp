@@ -1,5 +1,4 @@
- 
-<div class='profile'>
+
 <h1 style='border:solid; padding:50px;'>My Profile</h1>
 <div class="button">
 <%= button_to "Add a New Cat", new_cat_path, method: :get %>
@@ -23,11 +22,13 @@
 <h2><u>My Reservations</u></h2>
 <% if @reservations.length > 0 %>
     <% @reservations.each do |reservation| %>
+      <div style="margin-left:50px;">
       <%= link_to "#{reservation.date.to_s(:custom_datetime)} #{reservation.cat.name}", reservation %>
+      </div>
       <br>
     <% end  %>
 <% else %>
-  <p>None</p>
+  <p style="margin-left:50px;">None</p>
 <% end %>
 
 <br><br>
@@ -40,10 +41,7 @@
     <p>"<%= review.review %>"</p>
   <%end%>
 <% else %>
-  <p>None</p>
+  <p style="margin-left:50px;">None</p>
 <% end %>
 </div>
-
-</div>
-
 
